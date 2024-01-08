@@ -1,6 +1,13 @@
+#include "Bureaucrat.hpp"
 #include <iostream>
 
 int	main(void)
 {
-	std::cout << "Hello World!" << std::endl;
+	Bureaucrat a("dajeon");
+	std::cout << a;
+	a.increaseGrade(5);
+	a.increaseGrade(5);
+	a.increaseGrade(5);
+	a.increaseGrade(5);
+	std::cout << a;
 }

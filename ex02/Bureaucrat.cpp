@@ -21,22 +21,22 @@ int	Bureaucrat::validate(int _grade)
 
 Bureaucrat::Bureaucrat(void) : name(), grade(0)
 {
-	std::cout << "[DEBUG] Bureaucrat default constructor called" << std::endl;
+	std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string& _name, int _grade)
 try : name(_name), grade(validate(_grade)) {
-	std::cout << "[DEBUG] Bureaucrat constructor called" << std::endl;
+	std::cout << "Bureaucrat constructor called" << std::endl;
 } catch (std::exception &e) { throw ; }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& b) : name(b.name), grade(b.grade)
 {
-	std::cout << "[DEBUG] Bureaucrat copy constructor called" << std::endl;
+	std::cout << "Bureaucrat copy constructor called" << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& b)
 {
-	std::cout << "[DEBUG] Bureaucrat copy assignment operator called" << std::endl;
+	std::cout << "Bureaucrat copy assignment operator called" << std::endl;
 	if (this != &b)
 		grade = b.grade;
 	return (*this);
@@ -44,7 +44,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& b)
 
 Bureaucrat::~Bureaucrat(void)
 {
-	std::cout << "[DEBUG] Bureaucrat destructor called" << std::endl;
+	std::cout << "Bureaucrat destructor called" << std::endl;
 }
 
 std::string Bureaucrat::getName(void) const { return (name); }
@@ -68,7 +68,7 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
 	return (os << b.getName() << ", bureaucrat grade " << b.getGrade() << "." << std::endl);
 }
 
-void	Bureaucrat::signForm(Form& f) const
+void	Bureaucrat::signForm(AForm& f) const
 {
 	try
 	{

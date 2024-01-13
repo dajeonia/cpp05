@@ -26,23 +26,23 @@ int	Form::validate(const int _grade)
 
 Form::Form(void) : name(), is_signed(0), grade_to_sign(0), grade_to_execute(0)
 {
-	std::cout << "Form default constructor called (not used)" << std::endl;
+	std::cout << "[DEBUG] Form default constructor called (not used)" << std::endl;
 }
 
 Form::Form(const std::string& _name, int _sign, int _exec)
 try : name(_name), is_signed(0), grade_to_sign(validate(_sign)), grade_to_execute(validate(_exec)) {
-	std::cout << "Form constructor called" << std::endl;
+	std::cout << "[DEBUG] Form constructor called" << std::endl;
 } catch (std::exception &e) { throw ; }
 
 Form::Form(const Form& f)
 	: name(f.name), is_signed(f.is_signed), grade_to_sign(f.grade_to_sign), grade_to_execute(f.grade_to_execute)
 {
-	std::cout << "Form copy constructor called" << std::endl;
+	std::cout << "[DEBUG] Form copy constructor called" << std::endl;
 }
 
 Form& Form::operator=(const Form& f)
 {
-	std::cout << "Form copy assignment operator called" << std::endl;
+	std::cout << "[DEBUG] Form copy assignment operator called" << std::endl;
 	if (this != &f)
 		is_signed = f.is_signed;
 	return (*this);
@@ -50,7 +50,7 @@ Form& Form::operator=(const Form& f)
 
 Form::~Form(void)
 {
-	std::cout << "Form destructor called" << std::endl;
+	std::cout << "[DEBUG] Form destructor called" << std::endl;
 }
 
 std::string Form::getName(void) const { return (name); }

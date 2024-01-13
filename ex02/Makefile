@@ -1,6 +1,6 @@
 NAME = a.out
-SOURCES = main.cpp Bureaucrat.cpp AForm.cpp
-INCLUDES = Bureaucrat.hpp AForm.hpp
+SOURCES = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp
+INCLUDES = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SOURCES:.cpp=.o))
 SRCS = $(addprefix $(SRC_DIR)/, $(SOURCES))

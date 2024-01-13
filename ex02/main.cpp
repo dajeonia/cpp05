@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 #include <iostream>
 
 int	main(void)
@@ -7,7 +7,11 @@ int	main(void)
 	try
 	{
 		Bureaucrat b1("elder", 110);
-		Bureaucrat b2("younger", 150);
+		Bureaucrat b2("younger", 138);
+		ShrubberyCreationForm abc("abc");
+		b2.signForm(abc);
+		b2.executeForm(abc);
+		b1.executeForm(abc);
 	}
 	catch (std::exception& e)
 	{

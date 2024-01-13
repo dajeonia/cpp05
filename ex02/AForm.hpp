@@ -7,16 +7,16 @@ class Bureaucrat;
 
 class AForm {
 	const std::string name;
-	const std::string target;
 	bool is_signed;
 	const int grade_to_sign;
 	const int grade_to_execute;
 public :
 	class GradeTooHighException;
 	class GradeTooLowException;
-	class AFormAlreadySignedException;
+	class FormAlreadySignedException;
+	class FormNotSignedException;
 
-	AForm(const std::string&, const std::string&, int, int);
+	AForm(const std::string&, int, int);
 	AForm(const AForm&);
 	virtual AForm& operator=(const AForm&);
 	virtual ~AForm();
@@ -27,7 +27,7 @@ public :
 	int getGradeToExecute(void) const;
 	
 	void beSigned(const Bureaucrat&);
-	virtual void excute(const Bureaucrat&) =0;
+	virtual void execute(const Bureaucrat&) const =0;
 
 	class GradeTooHighException : public std::exception {
 	public:
@@ -37,7 +37,11 @@ public :
 	public:
 		char const* what(void) const _NOEXCEPT;
 	};
-	class AFormAlreadySignedException : public std::exception {
+	class FormAlreadySignedException : public std::exception {
+	public:
+		char const* what(void) const _NOEXCEPT;
+	};
+	class FormNotSignedException : public std::exception {
 	public:
 		char const* what(void) const _NOEXCEPT;
 	};

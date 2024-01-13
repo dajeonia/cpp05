@@ -10,9 +10,14 @@ char const*	AForm::GradeTooHighException::what(void) const _NOEXCEPT
 	return ("the grade is too high");
 }
 
-char const*	AForm::AFormAlreadySignedException::what(void) const _NOEXCEPT
+char const*	AForm::FormAlreadySignedException::what(void) const _NOEXCEPT
 {
 	return ("the form is already signed");
+}
+
+char const*	AForm::FormNotSignedException::what(void) const _NOEXCEPT
+{
+	return ("the form is not signed");
 }
 
 int	AForm::validate(const int _grade)
@@ -24,13 +29,13 @@ int	AForm::validate(const int _grade)
 	return (_grade);
 }
 
-AForm::AForm(void) : name(), target(), is_signed(0), grade_to_sign(0), grade_to_execute(0)
+AForm::AForm(void) : name(), is_signed(0), grade_to_sign(0), grade_to_execute(0)
 {
 	std::cout << "[DEBUG] AForm default constructor called (not used)" << std::endl;
 }
 
-AForm::AForm(const std::string& _name, const std::string& _target, int _sign, int _exec)
-try : name(_name), target(_target), is_signed(0), grade_to_sign(validate(_sign)), grade_to_execute(validate(_exec)) {
+AForm::AForm(const std::string& _name, int _sign, int _exec)
+try : name(_name), is_signed(0), grade_to_sign(validate(_sign)), grade_to_execute(validate(_exec)) {
 	std::cout << "[DEBUG] AForm constructor called" << std::endl;
 } catch (std::exception &e) { throw ; }
 
@@ -74,7 +79,7 @@ std::ostream&	operator<<(std::ostream& os, const AForm& f)
 void	AForm::beSigned(const Bureaucrat& b)
 {
 	if (is_signed == 1)
-		throw (AFormAlreadySignedException());
+		throw (FormAlreadySignedException());
 	else if (b.getGrade() > grade_to_sign)
 		throw (GradeTooLowException());
 	else

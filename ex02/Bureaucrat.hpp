@@ -28,6 +28,7 @@ public:
 	void decrement(int);
 	
 	void signForm(AForm&) const;
+	void executeForm(const AForm&) const;
 private:
 	int validate(int);
 	Bureaucrat();

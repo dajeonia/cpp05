@@ -2,12 +2,12 @@
 
 char const*	Bureaucrat::GradeTooLowException::what(void) const _NOEXCEPT
 {
-	return ("Bureaucrat grade too low");
+	return ("the grade is too low");
 }
 
 char const*	Bureaucrat::GradeTooHighException::what(void) const _NOEXCEPT
 {
-	return ("Bureaucrat grade too high");
+	return ("the grade is too high");
 }
 
 int	Bureaucrat::validate(int _grade)
@@ -24,15 +24,15 @@ Bureaucrat::Bureaucrat(void) : name(), grade(0)
 	std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& b) : name(b.name), grade(b.grade)
-{
-	std::cout << "Bureaucrat copy constructor called" << std::endl;
-}
-
 Bureaucrat::Bureaucrat(const std::string& _name, int _grade)
 try : name(_name), grade(validate(_grade)) {
 	std::cout << "Bureaucrat constructor called" << std::endl;
 } catch (std::exception &e) { throw ; }
+
+Bureaucrat::Bureaucrat(const Bureaucrat& b) : name(b.name), grade(b.grade)
+{
+	std::cout << "Bureaucrat copy constructor called" << std::endl;
+}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& b)
 {
@@ -47,28 +47,18 @@ Bureaucrat::~Bureaucrat(void)
 	std::cout << "Bureaucrat destructor called" << std::endl;
 }
 
-std::string Bureaucrat::getName(void) const
-{
-	// std::cout << "getName member function called" << std::endl;
-	return (name);
-}
+std::string Bureaucrat::getName(void) const { return (name); }
 
-int	Bureaucrat::getGrade(void) const
-{ 
-	// std::cout << "getGrade member function called" << std::endl;
-	return (grade);
-}
+int	Bureaucrat::getGrade(void) const { return (grade); }
 
 void Bureaucrat::increment(int n)
 {
-	// std::cout << "increament member function called" << std::endl;
 	validate(grade -= n);
 	std::cout << name << ", incremented to grade " << grade << "(+" << n << ")." << std::endl;
 }
 
 void Bureaucrat::decrement(int n)
 {
-	// std::cout << "decrement member function called" << std::endl;
 	validate(grade += n);
 	std::cout << name << ", decremented to grade " << grade << "(-" << n << ")." << std::endl;
 }
@@ -76,4 +66,17 @@ void Bureaucrat::decrement(int n)
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
 {
 	return (os << b.getName() << ", bureaucrat grade " << b.getGrade() << "." << std::endl);
+}
+
+void	Bureaucrat::signForm(Form& f) const
+{
+	try
+	{
+		f.beSigned(*this);
+		std::cout << "\'" << name << "\' signed \'" << f.getName() << "\'" << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "\'" << name << "\' couldn't sign \'" << f.getName() << "\' because " << e.what() << std::endl;
+	}
 }

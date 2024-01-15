@@ -1,21 +1,21 @@
 #include "AForm.hpp"
 
-char const*	AForm::GradeTooLowException::what(void) const _NOEXCEPT
+char const*	AForm::GradeTooLowException::what(void) const throw()
 {
 	return ("the grade is too low");
 }
 
-char const*	AForm::GradeTooHighException::what(void) const _NOEXCEPT
+char const*	AForm::GradeTooHighException::what(void) const throw()
 {
 	return ("the grade is too high");
 }
 
-char const*	AForm::FormAlreadySignedException::what(void) const _NOEXCEPT
+char const*	AForm::FormAlreadySignedException::what(void) const throw()
 {
 	return ("the form is already signed");
 }
 
-char const*	AForm::FormNotSignedException::what(void) const _NOEXCEPT
+char const*	AForm::FormNotSignedException::what(void) const throw()
 {
 	return ("the form is not signed");
 }

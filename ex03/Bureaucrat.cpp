@@ -1,11 +1,11 @@
 #include "Bureaucrat.hpp"
 
-char const*	Bureaucrat::GradeTooLowException::what(void) const _NOEXCEPT
+char const*	Bureaucrat::GradeTooLowException::what(void) const throw()
 {
 	return ("the grade is too low");
 }
 
-char const*	Bureaucrat::GradeTooHighException::what(void) const _NOEXCEPT
+char const*	Bureaucrat::GradeTooHighException::what(void) const throw()
 {
 	return ("the grade is too high");
 }

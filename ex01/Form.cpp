@@ -1,16 +1,16 @@
 #include "Form.hpp"
 
-char const*	Form::GradeTooLowException::what(void) const _NOEXCEPT
+char const*	Form::GradeTooLowException::what(void) const throw()
 {
 	return ("the grade is too low");
 }
 
-char const*	Form::GradeTooHighException::what(void) const _NOEXCEPT
+char const*	Form::GradeTooHighException::what(void) const throw()
 {
 	return ("the grade is too high");
 }
 
-char const*	Form::FormAlreadySignedException::what(void) const _NOEXCEPT
+char const*	Form::FormAlreadySignedException::what(void) const throw()
 {
 	return ("the form is already signed");
 }

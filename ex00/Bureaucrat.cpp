@@ -44,7 +44,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& b)
 
 Bureaucrat::~Bureaucrat(void)
 {
-	std::cout << "Bureaucrat destructor called" << std::endl;
+	std::cout << "[DEBUG] Bureaucrat destructor called" << std::endl;
 }
 
 std::string Bureaucrat::getName(void) const

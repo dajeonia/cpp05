@@ -19,11 +19,11 @@ public:
 
 	class GradeTooHighException : public std::exception {
 	public:
-		char const* what(void) const _NOEXCEPT;
+		char const* what(void) const throw();
 	};
 	class GradeTooLowException : public std::exception {
 	public:
-		char const* what(void) const _NOEXCEPT;
+		char const* what(void) const throw();
 	};
 private:
 	Bureaucrat();

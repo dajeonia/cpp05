@@ -17,7 +17,7 @@ public:
 	AForm* makeForm(const std::string&, const std::string&) const;
 	class FormNoIndexException : public std::exception {
 	public:
-		char const* what(void) const _NOEXCEPT;
+		char const* what(void) const throw();
 	};
 };
 

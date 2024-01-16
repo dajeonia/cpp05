@@ -4,6 +4,4 @@ Form::Form(AForm* _p) : p(_p) { }
 
 Form::~Form() { delete (p); }
 
-Form::operator AForm*() { return (p); }
-
-// AForm&	Form::operator*() { return (*p); };
+Form::operator AForm&() { return (*p); }

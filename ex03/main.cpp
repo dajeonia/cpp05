@@ -18,8 +18,8 @@ int	main(void) try
 
 	Form shrub(intern.makeForm("Shrubbery Creation", "Home"));
 	std::cout << "==================================================" << std::endl;
-	master.signForm(*shrub);
-	master.executeForm(*shrub);
+	master.signForm(shrub);
+	master.executeForm(shrub);
 	std::cout << "==================================================" << std::endl;
 
 	/*
@@ -41,6 +41,6 @@ int	main(void) try
 }
 catch (std::exception& e)
 {
-	std::cerr << "main: " << e.what() << std::endl;
+	std::cerr << "[EXCEPTION] main: " << e.what() << std::endl;
 	return (1);
 }

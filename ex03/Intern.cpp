@@ -1,6 +1,6 @@
 #include "Intern.hpp"
 
-char const*	Intern::FormNoIndexException::what(void) const _NOEXCEPT
+char const*	Intern::FormNoIndexException::what(void) const throw()
 {
 	return ("the form doesn't exist at index");
 }

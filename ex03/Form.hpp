@@ -8,7 +8,7 @@ class Form {
 public:
 	Form(AForm*);
 	~Form();
-	operator AForm*();
+	operator AForm&();
 private:
 	Form(const Form&);
 	Form& operator=(const Form&);

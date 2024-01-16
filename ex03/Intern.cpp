@@ -30,16 +30,11 @@ Intern::~Intern(void)
 
 AForm*	Intern::makeForm(const std::string& name, const std::string& target) const
 {
-	const std::string index[3] = {"Shrubbery Creation", "Robotomy Request", "Presidential Pardon"};
-	int i(0);
-	for (; i!=3; ++i)
-	{
-		if (index[i] == name) {
-			std::cout << "[INFO] Intern creates the form \'" << index[i] << "\'" << std::endl;
-			break;
-		}
-	}
-	switch (i) {
+	const std::string table[3] = {"Shrubbery Creation", "Robotomy Request", "Presidential Pardon"};
+	int index = std::distance(std::begin(table), find(std::begin(table), std::end(table), name));
+	if (index != 3)
+		std::cout << "[INFO] Intern has made the form " << table[index] << std::endl;
+	switch (index) {
 	case 0:
 		return (new ShrubberyCreationForm(target));
 	case 1:

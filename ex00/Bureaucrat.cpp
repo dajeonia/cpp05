@@ -62,14 +62,16 @@ int	Bureaucrat::getGrade(void) const
 void Bureaucrat::increment(int n)
 {
 	// std::cout << "[DEBUG] increament member function called" << std::endl;
-	validate(grade -= n);
+	validate(grade - n);
+	grade -= n;
 	std::cout << name << ", incremented to grade " << grade << "(+" << n << ")." << std::endl;
 }
 
 void Bureaucrat::decrement(int n)
 {
 	// std::cout << "[DEBUG] decrement member function called" << std::endl;
-	validate(grade += n);
+	validate(grade + n);
+	grade += n;
 	std::cout << name << ", decremented to grade " << grade << "(-" << n << ")." << std::endl;
 }
 

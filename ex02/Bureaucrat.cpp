@@ -53,13 +53,15 @@ int	Bureaucrat::getGrade(void) const { return (grade); }
 
 void Bureaucrat::increment(int n)
 {
-	validate(grade -= n);
+	validate(grade - n);
+	grade -= n;
 	std::cout << name << ", incremented to grade " << grade << "(+" << n << ")." << std::endl;
 }
 
 void Bureaucrat::decrement(int n)
 {
-	validate(grade += n);
+	validate(grade + n);
+	grade += n;
 	std::cout << name << ", decremented to grade " << grade << "(-" << n << ")." << std::endl;
 }
 

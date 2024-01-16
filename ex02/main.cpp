@@ -8,7 +8,6 @@ void	leaks(void) { system ("leaks -q a.out"); }
 
 int	main(void) try
 {
-	/*
 	ShrubberyCreationForm shrub("Cluster");
 	Bureaucrat junior("junior", 145);
 	Bureaucrat elder("elder", 137);
@@ -19,7 +18,6 @@ int	main(void) try
 	std::cout << shrub;
 	// junior.executeForm(shrub); // grade to low
 	elder.executeForm(shrub);
-	*/
 
 	/*
 	RobotomyRequestForm robot("Mushroom");
@@ -49,6 +47,6 @@ int	main(void) try
 }
 catch (std::exception& e)
 {
-	std::cerr << "main: " << e.what() << std::endl;
+	std::cerr << "[EXCEPTION] main: " << e.what() << std::endl;
 	return (1);
 }
